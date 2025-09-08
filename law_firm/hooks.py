@@ -1,0 +1,6 @@
+app_name = "law_firm"
+app_title = "law_firm"
+app_publisher = "showlineSolutions"
+app_description = "An application to manage school activities"
+app_email = "wisdommapeka@gmail.com"
+app_license = "mit"
