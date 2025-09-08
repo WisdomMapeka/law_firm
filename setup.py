@@ -8,7 +8,7 @@ setup(
     description='Law firm',  # Optional: Description
     long_description=open('README.md').read(),  # Ensure README.md exists
     long_description_content_type='text/markdown',  # Optional: Format of long description
-    url='',  # Ensure the URL is correct
+    url='https://github.com/WisdomMapeka/law_firm.git',  # Ensure the URL is correct
     packages=find_packages(),  # Automatically find packages in the directory
     classifiers=[  # Optional: Classifiers for PyPI
         'Programming Language :: Python :: 3.10',
