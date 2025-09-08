@@ -1,0 +1,202 @@
+{
+ "actions": [],
+ "allow_copy": 0,
+ "allow_events_in_timeline": 1,
+ "allow_guest_to_view": 0,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:DOC-{YYYY}-{MM}-{#####}",
+ "beta": 0,
+ "creation": "2024-01-01 10:00:00.000000",
+ "custom": 0,
+ "docstatus": 0,
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_details_section",
+  "document_name",
+  "legal_case",
+  "document_type",
+  "column_break_4",
+  "status",
+  "priority",
+  "version",
+  "document_content_section",
+  "document_content",
+  "metadata_section",
+  "author",
+  "creation_date",
+  "last_modified",
+  "column_break_12",
+  "file_size",
+  "file_format",
+  "related_documents_section",
+  "related_documents",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_details_section",
+   "fieldtype": "Section Break",
+   "label": "Document Details"
+  },
+  {
+   "fieldname": "document_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Document Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "legal_case",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Legal Case",
+   "options": "Legal Case"
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Select",
+   "label": "Document Type",
+   "options": "Pleading\\nMotion\\nBrief\\nContract\\nAgreement\\nAffidavit\\nDeposition\\nDiscovery\\nSubpoena\\nOrder\\nJudgment\\nLetter\\nMemo\\nResearch\\nOther"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\\nIn Review\\nApproved\\nFiled\\nServed\\nCompleted\\nArchived"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Low\\nMedium\\nHigh\\nUrgent"
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Data",
+   "label": "Version",
+   "default": "1.0"
+  },
+  {
+   "fieldname": "document_content_section",
+   "fieldtype": "Section Break",
+   "label": "Document Content"
+  },
+  {
+   "fieldname": "document_content",
+   "fieldtype": "Text Editor",
+   "label": "Document Content"
+  },
+  {
+   "fieldname": "metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Metadata"
+  },
+  {
+   "fieldname": "author",
+   "fieldtype": "Link",
+   "label": "Author",
+   "options": "User"
+  },
+  {
+   "fieldname": "creation_date",
+   "fieldtype": "Date",  
+   "label": "Creation Date"
+  },
+  {
+   "fieldname": "last_modified",
+   "fieldtype": "Date",  
+   "label": "Last Modified"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "file_size",
+   "fieldtype": "Data",
+   "label": "File Size"
+  },
+  {
+   "fieldname": "file_format",
+   "fieldtype": "Select",
+   "label": "File Format",
+   "options": ".docx\\n.pdf\\n.txt\\n.html\\n.rtf\\n.odt"
+  },
+  {
+   "fieldname": "related_documents_section",
+   "fieldtype": "Section Break",
+   "label": "Related Documents"
+  },
+  {
+   "fieldname": "related_documents",
+   "fieldtype": "Table",
+   "label": "Related Documents",
+   "options": "LegalDocumentReference"  
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Legal Document",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "icon": "fa fa-file-text",
+ "is_submittable": 0,
+ "links": [],
+ "modified": "2024-01-01 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "law_firm",
+ "name": "LegalDocument",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Legal Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Attorney",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Legal Assistant"
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "document_name,document_type,legal_case",
+ "sort_field": "creation_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "document_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

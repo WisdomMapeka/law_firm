@@ -1,0 +1,236 @@
+{
+ "actions": [],
+ "allow_copy": 0,
+ "allow_events_in_timeline": 1,
+ "allow_guest_to_view": 0,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:INV-{YYYY}-{MM}-{#####}",
+ "beta": 0,
+ "creation": "2024-01-01 10:00:00.000000",
+ "custom": 0,
+ "docstatus": 0,
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "invoice_details_section",
+  "invoice_number",
+  "legal_case",
+  "client",
+  "invoice_date",
+  "due_date",
+  "column_break_5",
+  "status",
+  "total_amount",
+  "amount_paid",
+  "balance_due",
+  "billing_items_section",
+  "items",
+  "payment_section",
+  "payment_terms",
+  "tax_rate",
+  "tax_amount",
+  "column_break_15",
+  "discount_amount",
+  "subtotal",
+  "grand_total",
+  "notes_section",
+  "notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "invoice_details_section",
+   "fieldtype": "Section Break",
+   "label": "Invoice Details"
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Invoice Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "legal_case",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Legal Case",
+   "options": "Legal Case",
+   "reqd": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Client",
+   "reqd": 1
+  },
+  {
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "label": "Invoice Date",
+   "reqd": 1,
+   "default": "Today"  
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\\nSent\\nPaid\\nOverdue\\nPartial\\nCancelled",
+   "default": "Draft"  
+  },
+  {
+   "fieldname": "total_amount", 
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount_paid",  
+   "fieldtype": "Currency",
+   "label": "Amount Paid",
+   "default": "0"  
+  },
+  {
+   "fieldname": "balance_due",  
+   "fieldtype": "Currency",
+   "label": "Balance Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "billing_items_section",
+   "fieldtype": "Section Break",
+   "label": "Billing Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Invoice Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Details"
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Select",
+   "label": "Payment Terms",
+   "options": "Net 15\\nNet 30\\nNet 60\\nDue on Receipt"
+  },
+  {
+   "fieldname": "tax_rate",
+   "fieldtype": "Percent",
+   "label": "Tax Rate",
+   "default": "0" 
+  },
+  {
+   "fieldname": "tax_amount",
+   "fieldtype": "Currency",
+   "label": "Tax Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "discount_amount",
+   "fieldtype": "Currency",
+   "label": "Discount Amount",
+   "default": "0"  
+  },
+  {
+   "fieldname": "subtotal",
+   "fieldtype": "Currency",
+   "label": "Subtotal",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Legal Invoice",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "icon": "fa fa-money",
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "law_firm",
+ "name": "LegalInvoice",
+ "naming_rule": "By fieldname", 
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Legal Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Attorney",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "invoice_number,legal_case,client",
+ "sort_field": "invoice_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "invoice_number",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

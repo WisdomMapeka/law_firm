@@ -1,0 +1,264 @@
+{
+ "actions": [],
+ "allow_copy": 0,
+ "allow_events_in_timeline": 1,
+ "allow_guest_to_view": 0,
+ "allow_import": 1,
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "beta": 0,
+ "creation": "2024-01-01 10:00:00.000000",
+ "custom": 0,
+ "docstatus": 0,
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "time_entry_details",
+  "naming_series",
+  "employee",
+  "legal_case",
+  "client",
+  "column_break_5",
+  "activity_date",
+  "from_time",
+  "to_time",
+  "hours",
+  "activity_section",
+  "activity_type",
+  "description",
+  "column_break_12",
+  "billable",
+  "billing_rate",
+  "billable_hours",
+  "billable_amount",
+  "billing_status_section",
+  "billing_status",
+  "invoiced",
+  "invoice_reference",
+  "column_break_19",
+  "approved_by",
+  "approval_date",
+  "notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "time_entry_details",
+   "fieldtype": "Section Break",
+   "label": "Time Entry Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "TE-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee", 
+   "reqd": 1
+  },
+  {
+   "fieldname": "legal_case",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Legal Case",
+   "options": "Legal Case",
+   "reqd": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Client",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "activity_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Activity Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "From Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "To Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "hours",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Hours",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "activity_section",
+   "fieldtype": "Section Break",
+   "label": "Activity Details"
+  },
+  {
+   "fieldname": "activity_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Activity Type",
+   "options": "Research\\nClient Meeting\\nCourt Appearance\\nDocument Preparation\\nDocument Review\\nCase Preparation\\nDeposition\\nNegotiation\\nPhone Call\\nEmail\\nTravel\\nAdministrative\\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Long Text",
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "billable",
+   "fieldtype": "Check",
+   "label": "Billable"
+  },
+  {
+   "fieldname": "billing_rate",
+   "fieldtype": "Currency",
+   "label": "Billing Rate"
+  },
+  {
+   "fieldname": "billable_hours",
+   "fieldtype": "Float",
+   "label": "Billable Hours",
+   "precision": "2"
+  },
+  {
+   "fieldname": "billable_amount",
+   "fieldtype": "Currency",
+   "label": "Billable Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "billing_status_section",
+   "fieldtype": "Section Break",
+   "label": "Billing Status"
+  },
+  {
+   "fieldname": "billing_status",
+   "fieldtype": "Select",
+   "label": "Billing Status",
+   "options": "Draft\\nApproved\\nInvoiced\\nPaid\\nCancelled",
+   "default": "Draft"  
+  },
+  {
+   "fieldname": "invoiced",
+   "fieldtype": "Check",
+   "label": "Invoiced"
+  },
+  {
+   "fieldname": "invoice_reference",
+   "fieldtype": "Link",
+   "label": "Invoice Reference",
+   "options": "Legal Invoice"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User",
+   "read_only": 1  
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Time Entry",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "icon": "fa fa-clock-o",
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "law_firm",
+ "name": "TimeEntry",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Legal Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Attorney",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Legal Assistant",
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "legal_case,employee,activity_date,activity_type",
+ "sort_field": "activity_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "activity_type",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

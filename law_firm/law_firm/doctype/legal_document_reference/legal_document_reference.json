@@ -1,0 +1,50 @@
+{
+  "actions": [],
+  "allow_copy": 0,
+  "allow_import": 0,
+  "allow_rename": 0,
+  "beta": 0,
+  "creation": "2024-01-01 10:00:00.000000",
+  "custom": 0,
+  "docstatus": 0,
+  "doctype": "DocType",
+  "document_type": "Child Table",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "referenced_document",
+    "reference_type",
+    "description"
+  ],
+  "fields": [
+    {
+      "fieldname": "referenced_document",
+      "fieldtype": "Link",
+      "label": "Referenced Document",
+      "options": "Legal Document",
+      "reqd": 1
+    },
+    {
+      "fieldname": "reference_type",
+      "fieldtype": "Select",
+      "label": "Reference Type",
+      "options": "Related\\nAmendment\\nResponse\\nSupporting\\nOpposing"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    }
+  ],
+  "istable": 1,
+  "modified": "2024-01-01 10:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "law_firm",
+  "name": "LegalDocumentReference",
+  "owner": "Administrator",
+  "permissions": [],
+  "quick_entry": 1,
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "track_changes": 1
+}

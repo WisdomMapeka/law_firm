@@ -1,0 +1,278 @@
+`<!-- case_dashboard.html -->
+{% extends "templates/web.html" %}
+
+{% block title %}{{ case.case_title }} - Case Dashboard{% endblock %}
+
+{% block head_include %}
+<style>
+.case-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid #667eea;
+}
+
+.timeline-item {
+    border-left: 2px solid #e9ecef;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    background: #667eea;
+    border-radius: 50%;
+}
+</style>
+{% endblock %}
+
+{% block page_content %}
+<div class="container-fluid">
+    <!-- Case Header -->
+    <div class="case-header">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>{{ case.case_title }}</h1>
+                <p class="mb-1"><strong>Case #:</strong> {{ case.case_number }}</p>
+                <p class="mb-1"><strong>Client:</strong> {{ case.client }}</p>
+                <p class="mb-0"><strong>Practice Area:</strong> {{ case.practice_area }}</p>
+            </div>
+            <div class="col-md-4 text-right">
+                <span class="badge badge-{{ 'success' if case.case_status == 'Open' else 'warning' }} badge-lg">
+                    {{ case.case_status }}
+                </span>
+                <div class="mt-2">
+                    <button class="btn btn-light btn-sm" onclick="addTimeEntry()">
+                        <i class="fa fa-clock"></i> Add Time
+                    </button>
+                    <button class="btn btn-light btn-sm" onclick="addTask()">
+                        <i class="fa fa-tasks"></i> Add Task
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Metrics Row -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="metric-card">
+                <h3 class="text-primary">{{ summary.total_hours }}</h3>
+                <p class="text-muted mb-0">Total Hours</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="metric-card">
+                <h3 class="text-success">${{ summary.billed_amount or 0 }}</h3>
+                <p class="text-muted mb-0">Billed Amount</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="metric-card">
+                <h3 class="text-warning">{{ summary.pending_tasks }}</h3>
+                <p class="text-muted mb-0">Pending Tasks</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="metric-card">
+                <h3 class="text-info">{{ summary.documents_count or 0 }}</h3>
+                <p class="text-muted mb-0">Documents</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Timeline -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Case Timeline</h5>
+                </div>
+                <div class="card-body">
+                    <div id="case-timeline">
+                        <!-- Timeline will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action" onclick="addTimeEntry()">
+                            <i class="fa fa-clock text-primary"></i> Log Time Entry
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" onclick="uploadDocument()">
+                            <i class="fa fa-file text-success"></i> Upload Document
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" onclick="scheduleEvent()">
+                            <i class="fa fa-calendar text-warning"></i> Schedule Event
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" onclick="generateInvoice()">
+                            <i class="fa fa-money text-info"></i> Generate Invoice
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Documents -->
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>Recent Documents</h5>
+                </div>
+                <div class="card-body">
+                    <div id="recent-documents">
+                        <!-- Documents will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+<div class="modal fade" id="timeEntryModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Time Entry</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="timeEntryForm">
+                    <div class="form-group">
+                        <label>Activity Type</label>
+                        <select class="form-control" name="activity_type" required>
+                            <option value="">Select Activity</option>
+                            <option value="Research">Research</option>
+                            <option value="Client Meeting">Client Meeting</option>
+                            <option value="Court Appearance">Court Appearance</option>
+                            <option value="Document Review">Document Review</option>
+                            <option value="Case Preparation">Case Preparation</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>From Time</label>
+                                <input type="time" class="form-control" name="from_time" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>To Time</label>
+                                <input type="time" class="form-control" name="to_time" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" name="description" rows="3"></textarea>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="billable" checked>
+                        <label class="form-check-label">Billable</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="saveTimeEntry()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Load case timeline
+function loadTimeline() {
+    frappe.call({
+        method: "law_firm.law_firm.doctype.legal_case.legal_case.get_case_timeline",
+        args: {
+            case_name: "{{ case.name }}"
+        },
+        callback: function(r) {
+            if (r.message) {
+                let html = '';
+                r.message.forEach(function(item) {
+                    html += \`
+                        <div class="timeline-item">
+                            <div class="d-flex justify-content-between">
+                                <strong>\${item.type}</strong>
+                                <small class="text-muted">\${moment(item.date).fromNow()}</small>
+                            </div>
+                            <p class="mb-1">\${item.description}</p>
+                            <small class="text-muted">by \${item.user}</small>
+                        </div>
+                    \`;
+                });
+                document.getElementById('case-timeline').innerHTML = html;
+            }
+        }
+    });
+}
+
+// Add time entry
+function addTimeEntry() {
+    $('#timeEntryModal').modal('show');
+}
+
+function saveTimeEntry() {
+    let formData = $('#timeEntryForm').serializeArray();
+    let data = {};
+    formData.forEach(function(item) {
+        data[item.name] = item.value;
+    });
+    
+    data.legal_case = "{{ case.name }}";
+    data.activity_date = moment().format('YYYY-MM-DD');
+    
+    frappe.call({
+        method: "frappe.client.insert",
+        args: {
+            doc: {
+                doctype: "Time Entry",
+                ...data
+            }
+        },
+        callback: function(r) {
+            if (r.message) {
+                $('#timeEntryModal').modal('hide');
+                frappe.show_alert({
+                    message: 'Time entry saved successfully',
+                    indicator: 'green'
+                });
+                location.reload();
+            }
+        }
+    });
+}
+
+// Initialize
+$(document).ready(function() {
+    loadTimeline();
+});
+</script>
+{% endblock %}`,

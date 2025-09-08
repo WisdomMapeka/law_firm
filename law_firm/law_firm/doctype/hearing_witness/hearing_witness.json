@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_copy": 0,
+ "allow_guest_to_view": 0,
+ "allow_import": 0,
+ "allow_rename": 0,
+ "beta": 0,
+ "creation": "2024-01-01 10:00:00.000000",
+ "custom": 0,
+ "docstatus": 0,
+ "doctype": "DocType",
+ "document_type": "Child Table",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "witness_name",
+  "role",
+  "contact_info",
+  "testimony_summary"
+ ],
+ "fields": [
+  {
+   "fieldname": "witness_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Witness Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Select",
+   "label": "Role",
+   "options": "Expert\\nFact\\nCharacter\\nEye Witness\\nProfessional"
+  },
+  {
+   "fieldname": "contact_info",
+   "fieldtype": "Data",
+   "label": "Contact Information"
+  },
+  {
+   "fieldname": "testimony_summary",
+   "fieldtype": "Text",
+   "label": "Testimony Summary"
+  }
+ ],
+ "hide_toolbar": 1,
+ "istable": 1,
+ "modified": "2024-01-01 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "law_firm",
+ "name": "HearingWitness",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

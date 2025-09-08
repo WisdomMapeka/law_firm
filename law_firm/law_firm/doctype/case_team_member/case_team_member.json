@@ -1,0 +1,89 @@
+{
+  "actions": [],
+  "allow_copy": 0,
+  "allow_guest_to_view": 0,
+  "allow_import": 0,
+  "allow_rename": 0,
+  "beta": 0,
+  "creation": "2024-01-01 10:00:00.000000",
+  "custom": 0,
+  "docstatus": 0,
+  "doctype": "DocType",
+  "document_type": "Child Table",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "team_member",
+    "role",
+    "hourly_rate",
+    "hours_allocated",
+    "total_cost",
+    "start_date",
+    "end_date",
+    "is_lead"
+  ],
+  "fields": [
+    {
+      "fieldname": "team_member",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Team Member",
+      "options": "User",
+      "reqd": 1
+    },
+    {
+      "fieldname": "role",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Role",
+      "options": "Lead Attorney\nAssociate Attorney\nParalegal\nLegal Assistant\nLaw Clerk\nInvestigator\nExpert Witness\nConsultant",
+      "reqd": 1
+    },
+    {
+      "fieldname": "hourly_rate",
+      "fieldtype": "Currency",
+      "label": "Hourly Rate",
+      "precision": "2"
+    },
+    {
+      "fieldname": "hours_allocated",
+      "fieldtype": "Float",
+      "label": "Hours Allocated",
+      "precision": "2"
+    },
+    {
+      "fieldname": "total_cost",
+      "fieldtype": "Currency",
+      "label": "Total Cost",
+      "read_only": 1,
+      "precision": "2"
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "label": "Start Date"
+    },
+    {
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "label": "End Date"
+    },
+    {
+      "fieldname": "is_lead",
+      "fieldtype": "Check",
+      "label": "Is Lead"
+    }
+  ],
+  "hide_toolbar": 1,
+  "istable": 1,
+  "modified": "2024-01-01 10:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "law_firm",
+  "name": "CaseTeamMember",  
+  "owner": "Administrator",
+  "permissions": [],
+  "quick_entry": 1,
+  "sort_field": "creation",
+  "sort_order": "DESC",
+  "track_changes": 1
+}

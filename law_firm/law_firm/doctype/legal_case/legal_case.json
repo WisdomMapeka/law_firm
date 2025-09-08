@@ -1,0 +1,386 @@
+{
+ "actions": [],
+ "allow_copy": 0,
+ "allow_events_in_timeline": 1,
+ "allow_guest_to_view": 0,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "beta": 0,
+ "creation": "2024-01-01 10:00:00.000000",
+ "custom": 0,
+ "docstatus": 0,
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "case_details_section",
+  "naming_series",
+  "case_title",
+  "client",
+  "column_break_4",
+  "status",
+  "priority",
+  "practice_area",
+  "case_info_section",
+  "case_description",
+  "column_break_9",
+  "case_type",
+  "court_jurisdiction",
+  "opposing_party",
+  "opposing_counsel",
+  "dates_section",
+  "date_opened",
+  "expected_close_date",
+  "date_closed",
+  "column_break_16",
+  "statute_of_limitations",
+  "next_hearing_date",
+  "team_section",
+  "lead_attorney",
+  "assigned_attorneys",
+  "legal_assistants",
+  "billing_section",
+  "billing_method",
+  "hourly_rate",
+  "flat_fee_amount",
+  "column_break_24",
+  "contingency_percentage",
+  "retainer_amount",
+  "estimated_hours",
+  "budget_limit",
+  "case_value",
+  "additional_info_section",
+  "tags",
+  "confidentiality_level",
+  "column_break_32",
+  "referral_source",
+  "case_outcome",
+  "notes_section",
+  "case_notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "case_details_section",
+   "fieldtype": "Section Break",
+   "label": "Case Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "CASE-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "case_title",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Case Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Client",
+   "options": "Client",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\\nIn Progress\\nPending\\nOn Hold\\nClosed\\nSettled\\nDismissed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Low\\nMedium\\nHigh\\nUrgent"
+  },
+  {
+   "fieldname": "practice_area",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Practice Area",
+   "options": "Civil Litigation\\nCriminal Defense\\nFamily Law\\nCorporate Law\\nReal Estate\\nEmployment Law\\nIntellectual Property\\nTax Law\\nBankruptcy\\nPersonal Injury\\nEstate Planning\\nImmigration\\nEnvironmental Law\\nOther"
+  },
+  {
+   "fieldname": "case_info_section",
+   "fieldtype": "Section Break",
+   "label": "Case Information"
+  },
+  {
+   "fieldname": "case_description",
+   "fieldtype": "Text Editor",
+   "label": "Case Description"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "case_type",
+   "fieldtype": "Data",
+   "label": "Case Type"
+  },
+  {
+   "fieldname": "court_jurisdiction",
+   "fieldtype": "Data",
+   "label": "Court/Jurisdiction"
+  },
+  {
+   "fieldname": "opposing_party",
+   "fieldtype": "Data",
+   "label": "Opposing Party"
+  },
+  {
+   "fieldname": "opposing_counsel",
+   "fieldtype": "Data",
+   "label": "Opposing Counsel"
+  },
+  {
+   "fieldname": "dates_section",
+   "fieldtype": "Section Break",
+   "label": "Important Dates"
+  },
+  {
+   "fieldname": "date_opened",
+   "fieldtype": "Date",
+   "label": "Date Opened"
+  },
+  {
+   "fieldname": "expected_close_date",
+   "fieldtype": "Date",
+   "label": "Expected Close Date"
+  },
+  {
+   "fieldname": "date_closed",
+   "fieldtype": "Date",
+   "label": "Date Closed"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "statute_of_limitations",
+   "fieldtype": "Date",
+   "label": "Statute of Limitations"
+  },
+  {
+   "fieldname": "next_hearing_date",
+   "fieldtype": "Datetime",
+   "label": "Next Hearing Date"
+  },
+  {
+   "fieldname": "team_section",
+   "fieldtype": "Section Break",
+   "label": "Legal Team"
+  },
+  {
+   "fieldname": "lead_attorney",
+   "fieldtype": "Link",
+   "label": "Lead Attorney",
+   "options": "User"
+  },
+  {
+   "fieldname": "assigned_attorneys",
+   "fieldtype": "Table",
+   "label": "Assigned Attorneys",
+   "options": "Case Team Member"
+  },
+  {
+   "fieldname": "legal_assistants",
+   "fieldtype": "Table",
+   "label": "Legal Assistants",
+   "options": "Case Team Member"
+  },
+  {
+   "fieldname": "billing_section",
+   "fieldtype": "Section Break",
+   "label": "Billing Information"
+  },
+  {
+   "fieldname": "billing_method",
+   "fieldtype": "Select",
+   "label": "Billing Method",
+   "options": "Hourly\\nFlat Fee\\nContingency\\nRetainer\\nMixed"
+  },
+  {
+   "fieldname": "hourly_rate",
+   "fieldtype": "Currency",
+   "label": "Hourly Rate"
+  },
+  {
+   "fieldname": "flat_fee_amount",
+   "fieldtype": "Currency",
+   "label": "Flat Fee Amount"
+  },
+  {
+   "fieldname": "column_break_24",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contingency_percentage",
+   "fieldtype": "Percent",
+   "label": "Contingency Percentage"
+  },
+  {
+   "fieldname": "retainer_amount",
+   "fieldtype": "Currency",
+   "label": "Retainer Amount"
+  },
+  {
+   "fieldname": "estimated_hours",
+   "fieldtype": "Float",
+   "label": "Estimated Hours"
+  },
+  {
+   "fieldname": "budget_limit",
+   "fieldtype": "Currency",
+   "label": "Budget Limit"
+  },
+  {
+   "fieldname": "case_value",
+   "fieldtype": "Currency",
+   "label": "Case Value"
+  },
+  {
+   "fieldname": "additional_info_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "tags",
+   "fieldtype": "Data",
+   "label": "Tags"
+  },
+  {
+  "fieldname": "assigned_attorneys",
+  "fieldtype": "Table",
+  "label": "Assigned Attorneys",
+  "options": "CaseTeamMember"  
+  },
+  {
+   "fieldname": "confidentiality_level",
+   "fieldtype": "Select",
+   "label": "Confidentiality Level",
+   "options": "Public\\nConfidential\\nRestricted\\nTop Secret"
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "referral_source",
+   "fieldtype": "Data",
+   "label": "Referral Source"
+  },
+  {
+   "fieldname": "case_outcome",
+   "fieldtype": "Select",
+   "label": "Case Outcome",
+   "options": "\\nWon\\nLost\\nSettled\\nDismissed\\nWithdrawn\\nPending"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "case_notes",
+   "fieldtype": "Text Editor",
+   "label": "Case Notes"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Legal Case",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "icon": "fa fa-legal",
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "Activities",
+   "link_doctype": "Time Entry",
+   "link_fieldname": "legal_case"
+  },
+  {
+   "group": "Activities",
+   "link_doctype": "Legal Document",
+   "link_fieldname": "legal_case"
+  },
+  {
+   "group": "Activities",
+   "link_doctype": "Court Hearing",
+   "link_fieldname": "legal_case"
+  },
+  {
+   "group": "Billing",
+   "link_doctype": "Legal Invoice",
+   "link_fieldname": "legal_case"
+  }
+ ],
+ "modified": "2024-01-01 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "law_firm",
+ "name": "LegalCase",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Legal Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Attorney",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Legal Assistant"
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "case_title,client,practice_area,status",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "case_title",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

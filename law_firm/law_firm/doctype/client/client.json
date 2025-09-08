@@ -1,0 +1,432 @@
+{
+  "actions": [],
+  "allow_copy": 0,
+  "allow_events_in_timeline": 1,
+  "allow_guest_to_view": 0,
+  "allow_import": 1,
+  "allow_rename": 1,
+  "autoname": "naming_series:",
+  "beta": 0,
+  "creation": "2024-01-01 10:00:00.000000",
+  "custom": 0,
+  "docstatus": 0,
+  "doctype": "DocType",
+  "document_type": "Document",
+  "editable_grid": 1,
+  "engine": "InnoDB",  
+  "field_order": [
+    "client_details_section",
+    "naming_series",
+    "client_name",
+    "client_type",
+    "column_break_4",
+    "status",
+    "client_id",
+    "contact_info_section",
+    "primary_contact",
+    "email",
+    "mobile",
+    "phone",
+    "column_break_10",
+    "website",
+    "fax",
+    "preferred_contact",
+    "address_section",
+    "address_line1",
+    "address_line2",
+    "city",
+    "state",
+    "zip_code",
+    "country",
+    "column_break_18",
+    "billing_address",
+    "shipping_address",
+    "demographics_section",
+    "date_of_birth",
+    "gender",
+    "occupation",
+    "employer",
+    "column_break_24",
+    "ssn",
+    "tax_id",
+    "marital_status",
+    "referred_by",
+    "billing_section",
+    "billing_currency",
+    "payment_terms",
+    "credit_limit",
+    "column_break_30",
+    "tax_rate",
+    "discount_percentage",
+    "preferred_payment",
+    "additional_info_section",
+    "notes",
+    "important_dates_section",
+    "client_since",
+    "last_contact",
+    "next_follow_up",
+    "amended_from"
+  ],
+  "fields": [
+    {
+      "fieldname": "client_details_section",
+      "fieldtype": "Section Break",
+      "label": "Client Details"
+    },
+    {
+      "default": "CLI-.YYYY.-",
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "CLI-.YYYY.-",
+      "reqd": 1
+    },
+    {
+      "fieldname": "client_name",
+      "fieldtype": "Data",
+      "in_global_search": 1,
+      "in_list_view": 1,
+      "label": "Client Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "client_type",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Client Type",
+      "options": "Individual\nCorporation\nPartnership\nLLC\nNon-Profit\nGovernment\nOther",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_4",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "Active",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Active\nInactive\nProspect\nFormer\nReferred"
+    },
+    {
+      "fieldname": "client_id",
+      "fieldtype": "Data",
+      "label": "Client ID",
+      "read_only": 1
+    },
+    {
+    "fieldname": "full_address",
+    "fieldtype": "Text",
+    "label": "Full Address",
+    "read_only": 1,
+    "hidden": 1
+  },
+  {
+    "fieldname": "client_folder",
+    "fieldtype": "Data",
+    "label": "Client Folder",
+    "read_only": 1,
+    "hidden": 1
+  },
+  {
+      "fieldname": "contact_info_section",
+      "fieldtype": "Section Break",
+      "label": "Contact Information"
+    },
+    {
+      "fieldname": "primary_contact",
+      "fieldtype": "Data",
+      "label": "Primary Contact"
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Email",
+      "options": "Email"
+    },
+    {
+      "fieldname": "mobile",
+      "fieldtype": "Data",
+      "label": "Mobile",
+      "options": "Phone"
+    },
+    {
+      "fieldname": "phone",
+      "fieldtype": "Data",
+      "label": "Phone",
+      "options": "Phone"
+    },
+    {
+      "fieldname": "column_break_10",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "website",
+      "fieldtype": "Data",
+      "label": "Website",
+      "options": "URL"
+    },
+    {
+      "fieldname": "fax",
+      "fieldtype": "Data",
+      "label": "Fax"
+    },
+    {
+      "fieldname": "preferred_contact",
+      "fieldtype": "Select",
+      "label": "Preferred Contact",
+      "options": "Email\nPhone\nMobile\nMail\nIn Person"
+    },
+    {
+      "fieldname": "address_section",
+      "fieldtype": "Section Break",
+      "label": "Address"
+    },
+    {
+      "fieldname": "address_line1",
+      "fieldtype": "Data",
+      "label": "Address Line 1"
+    },
+    {
+      "fieldname": "address_line2",
+      "fieldtype": "Data",
+      "label": "Address Line 2"
+    },
+    {
+      "fieldname": "city",
+      "fieldtype": "Data",
+      "label": "City"
+    },
+    {
+      "fieldname": "state",
+      "fieldtype": "Data",
+      "label": "State"
+    },
+    {
+      "fieldname": "zip_code",
+      "fieldtype": "Data",
+      "label": "ZIP Code"
+    },
+    {
+      "fieldname": "country",
+      "fieldtype": "Data",
+      "label": "Country",
+      "default": "United States"
+    },
+    {
+      "fieldname": "column_break_18",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "billing_address",
+      "fieldtype": "Text",
+      "label": "Billing Address"
+    },
+    {
+      "fieldname": "shipping_address",
+      "fieldtype": "Text",
+      "label": "Shipping Address"
+    },
+    {
+      "fieldname": "demographics_section",
+      "fieldtype": "Section Break",
+      "label": "Demographics"
+    },
+    {
+      "fieldname": "date_of_birth",
+      "fieldtype": "Date",
+      "label": "Date of Birth"
+    },
+    {
+      "fieldname": "gender",
+      "fieldtype": "Select",
+      "label": "Gender",
+      "options": "Male\nFemale\nOther\nPrefer not to say"
+    },
+    {
+      "fieldname": "occupation",
+      "fieldtype": "Data",
+      "label": "Occupation"
+    },
+    {
+      "fieldname": "employer",
+      "fieldtype": "Data",
+      "label": "Employer"
+    },
+    {
+      "fieldname": "column_break_24",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "ssn",
+      "fieldtype": "Data",
+      "label": "SSN/Tax ID",
+      "password": 1
+    },
+    {
+      "fieldname": "tax_id",
+      "fieldtype": "Data",
+      "label": "EIN/Tax ID"
+    },
+    {
+      "fieldname": "marital_status",
+      "fieldtype": "Select",
+      "label": "Marital Status",
+      "options": "Single\nMarried\nDivorced\nWidowed\nSeparated"
+    },
+    {
+      "fieldname": "referred_by",
+      "fieldtype": "Data",
+      "label": "Referred By"
+    },
+    {
+      "fieldname": "billing_section",
+      "fieldtype": "Section Break",
+      "label": "Billing Information"
+    },
+    {
+      "fieldname": "billing_currency",
+      "fieldtype": "Link",
+      "label": "Currency",
+      "options": "Currency",
+      "default": "USD"
+    },
+    {
+      "fieldname": "payment_terms",
+      "fieldtype": "Select",
+      "label": "Payment Terms",
+      "options": "Net 15\nNet 30\nNet 60\nDue on Receipt\nRetainer"
+    },
+    {
+      "fieldname": "credit_limit",
+      "fieldtype": "Currency",
+      "label": "Credit Limit"
+    },
+    {
+      "fieldname": "column_break_30",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "tax_rate",
+      "fieldtype": "Percent",
+      "label": "Tax Rate"
+    },
+    {
+      "fieldname": "discount_percentage",
+      "fieldtype": "Percent",
+      "label": "Discount Percentage"
+    },
+    {
+      "fieldname": "preferred_payment",
+      "fieldtype": "Select",
+      "label": "Preferred Payment",
+      "options": "Credit Card\nBank Transfer\nCheck\nCash\nOnline Payment"
+    },
+    {
+      "fieldname": "additional_info_section",
+      "fieldtype": "Section Break",
+      "label": "Additional Information"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text Editor",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "important_dates_section",
+      "fieldtype": "Section Break",
+      "label": "Important Dates"
+    },
+    {
+      "default": "Today",
+      "fieldname": "client_since",
+      "fieldtype": "Date",
+      "label": "Client Since"
+    },
+    {
+      "fieldname": "last_contact",
+      "fieldtype": "Date",
+      "label": "Last Contact"
+    },
+    {
+      "fieldname": "next_follow_up",
+      "fieldtype": "Date",
+      "label": "Next Follow Up"
+    },
+    {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "no_copy": 1,
+      "options": "Client",
+      "print_hide": 1,
+      "read_only": 1
+    }
+  ],
+  "icon": "fa fa-user",
+  "is_submittable": 0,
+  "links": [
+    {
+      "group": "Cases",
+      "link_doctype": "Legal Case",
+      "link_fieldname": "client"
+    },
+    {
+      "group": "Billing",
+      "link_doctype": "Legal Invoice",
+      "link_fieldname": "client"
+    },
+    {
+      "group": "Activities",
+      "link_doctype": "Time Entry",
+      "link_fieldname": "client"
+    }
+  ],
+  "modified": "2024-01-01 10:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "law_firm",
+  "name": "Client",
+  "naming_rule": "By \"Naming Series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Legal Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Attorney",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "read": 1,
+      "role": "Legal Assistant"
+    }
+  ],
+  "quick_entry": 1,
+  "search_fields": "client_name,email,client_type,status",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "client_name",
+  "track_changes": 1,
+  "track_seen": 1,
+  "track_views": 1
+}
