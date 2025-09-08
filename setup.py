@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='Law Firm',  # Use hyphens instead of spaces
+    name='law_firm',  # Use hyphens instead of spaces
     version='0.1.0',          # Required: Package version
     author='tawe',             # Optional: Author name (capitalize if desired)
     author_email='tman@gmail.com',  # Optional: Author email
